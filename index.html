@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logo.png">
+    <title>replay</title>
+</head>
+<style>
+    body {
+        color: white;
+        background-color: rgb(17, 17, 17);
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    header {
+        background-color: black;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    header img {
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+    .nav-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        border-radius: 0;
+        border: none;
+    }
+
+    .nav-buttons a {
+        color: white;
+        text-decoration: none;
+        background-color: rgb(26, 26, 26);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 13px;
+        border: 2px solid rgb(255, 123, 0);
+        transition: all 0.3s;
+        display: inline-block;
+    }
+
+    .nav-buttons a:hover {
+        background-color: rgb(255, 123, 0);
+        border-color: rgb(255, 123, 0);
+    }
+    .text {
+        margin-left: 65px;
+    }
+
+    code {
+        background-color: rgb(26, 26, 26);
+        border: 3px solid rgb(255, 123, 0);
+        border-radius: 30px;
+        padding: 10px 20px;
+        color: #fff;
+        display: inline-block;
+    }
+    .title-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-right: 100px;
+    }
+
+</style>
+<body>
+    <header>
+        <div class="title-group">
+            <img src="logo.png" alt="replay logo">
+            <h1>replay</h1>
+        </div>
+        <div class="nav-buttons">
+            <a href="#intro">Introduction</a>
+            <a href="#why">Why Replay?</a>
+            <a href="#features">Features</a>
+            <a href="#how">How It Works</a>
+            <a href="#example">Quick Example</a>
+            <a href="#usecases">Use Cases</a>
+            <a href="#install">Installation</a>
+            <a href="#contributing">Contributing</a>
+            <a href="#license">License</a>
+        </div>
+    </header>
+    <div class="text">
+        <section id="intro">
+            <h1>Introduction</h1>
+            <p>Replay is a command-line tool for creating portable project backups.</p>
+            <p>With a single command, you save the entire folder structure and file contents into an .rpl file. You can then restore that snapshot on any machine, in any directory, using a simple command.</p>
+            <p>Ideal for developers who need to save project snapshots, share code without relying on Git, or quickly and efficiently migrate projects between machines.</p>
+            <p>Lightweight, fast, and dependency-free.</p>
+        </section id="why">
+        <section>
+            <h1>Why Replay?</h1>
+            <p>Unlike traditional backup tools like tar or zip, Replay generates a human-readable .rpl file that preserves the complete project structure, including folder hierarchy and file contents.</p>
+            <p>It's perfect for creating restore points before major refactoring, archiving specific versions, or sharing projects with teammates who don't have access to your repository.</p>
+            <p>No complex configurations, no external dependencies, and no vendor lock-in.</p>
+        </section>
+        <section id="features">
+            <h1>Features</h1>
+            <p><strong>Complete Backup</strong> - Captures the entire project, including all subdirectories and files.</p>
+            <p><strong>Instant Restore</strong> - Recreate your project anywhere with a single command.</p>
+            <p><strong>Portable</strong> - A single .rpl file contains everything. Take it anywhere.</p>
+            <p><strong>Simple & Fast</strong> - No setup required. Just Python 3 and one command.</p>
+            <p><strong>Human-Readable</strong> - The .rpl format is plain text, easy to inspect or modify.</p>
+        </section>
+        <section id="how">
+            <h1>How It Works</h1>
+            <p>Replay scans your project recursively, collecting all directories and files. It saves the relative paths and file contents into a structured .rpl file.</p>
+            <p>When restoring, it reads the .rpl file and recreates the entire structure in your target directory, creating folders and files exactly as they were.</p>
+            <p>Everything is preserved - your code, configuration files, documentation, and any other assets.</p>
+        </section>
+
+        <section id="example">
+            <h1>Quick Example</h1>
+            <p><strong>Creating a backup:</strong></p>
+            <pre><code>replay -d ./myproject -n backup -s ./myproject</code></pre>
+            <p><strong>Restoring a backup:</strong></p>
+            <pre><code>replay -d ./restored -n backup -c</code></pre>
+            <p>That's it. No configuration files, no environment variables, no setup.</p>
+        </section>
+
+        <section id="usecases">
+            <h1>Use Cases</h1>
+            <p><strong>Snapshots</strong> - Save a version of your project before making major changes.</p>
+            <p><strong>Sharing</strong> - Send a complete project to a colleague without using Git or cloud storage.</p>
+            <p><strong>Migration</strong> - Move projects between different machines or environments.</p>
+            <p><strong>Archiving</strong> - Keep historical versions of your projects in a compact format.</p>
+            <p><strong>CI/CD</strong> - Use in pipelines to create backup points during automated workflows.</p>
+        </section>
+
+        <section id="install">
+            <h1>Installation</h1>
+            <pre><code>curl -sSL https://raw.githubusercontent.com/pixelcatBR/replay/main/setup.sh | bash</code></pre>
+            <p>Requires Python 3.6+ and works on Linux, macOS, and Windows.</p>
+        </section>
+        <section id="contributing">
+            <h1>Contributing</h1>
+            <p>Replay is open source and welcomes contributions. Feel free to report issues, suggest features, or submit pull requests.</p>
+            <p>Check the GitHub repository for more details.</p>
+        </section>
+        <section id="license">
+            <h1>License</h1>
+            <p>MIT License - Use it anywhere, modify it, share it. Open source and free.</p>
+        </section>
+    </div>
+</body>
+</html>
